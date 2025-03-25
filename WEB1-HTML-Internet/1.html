@@ -1,56 +1,82 @@
-<!-- <h1></h1> heading -->
-<h1>HTML</h1>
+<!-- <!doctype html> 이 웹페이지가 HTML로서 만들어졌다는 것을 표현 -->
+<!doctype html>
 
-<!-- <p></p> 단락 -->
-<p>
-    Hypertext Markup Language (HTML) is the standard markup language for
-    <strong>creating <u>web</u> pages</strong> and web applications. Web
-    browsers receive HTML documents from a web server or from local storage and
-    render them into multimedia web pages. HTML describes the structure of a web
-    page semantically and originally included cues for the appearance of the
-    document.
-</p>
-<!-- <br /> 줄 개행 -->
+<!-- <html></html> body 태그와 head 태그를 감싸는 태그 -->
+<html>
+    <!-- <head></head> 본문을 설명 (본문이 아님) -->
+    <head>
+        <!-- 이 웹페이지를 UTF-8로 저장했다면 웹페이지를 열 때도 UTF-8 방식으로 해석해서
+열어야 한다 -->
+        <!-- 영어가 아닌 문자가 깨지는 이유는 웹페이지가 저장된 문자 표현 방식과
+웹브라우저가 웹페이지를 해석하는 방식이 일치하지 않을 때 웹브라우저는
+이상한 문자를 표시한다. -->
 
-<p style="margin-top: 40px">
-    <!-- <br /> 태그를 사용하는 것보다는 의미에 맞는 <p></p> 태그를 사용하기 -->
-    <!-- 시각적으로 부족한 부분은 css로 정교하게 제어할 수 있으니 의미에 맞는 태그를 사용하기 -->
-    HTML elements are the building blocks of HTML pages. With HTML constructs,
-    images and other objects, such as interactive forms, may be embedded into
-    the rendered page. It provides a means to create structured documents by
-    denoting structural semantics for text such as headings, paragraphs, lists,
-    links, quotes and other items. HTML elements are delineated by tags, written
-    using angle brackets.
-</p>
+        <meta charset="utf-8" />
+        <!-- 웹브라우저야 이 웹페이지는 UTF-8로 만들어졌기 때문에 UTF-8로 열어야 해~ -->
 
-<!-- <img /> 이미지 -->
-<!-- 속성 source: 태그의 이름만으로는 정보가 부족할 때 사용 -->
-<!-- 링크로 -->
-<img
-    src="https://s3-ap-northeast-2.amazonaws.com/opentutorials-user-file/module/3135/7648.png"
-    width="100%"
-    alt=""
-/>
-<!-- 저장된 이미지로 -->
-<img src="coding.avif" width="100%" alt="" />
+        <!-- <title></title> 웹페이지의 제목 -->
+        <!-- title 태그는 검색엔진이 웹페이지를 분석할 때 가장 중요하게 생각하는 태그이기
+때문에 title 태그를 쓰지 않으면 정말 큰 손해! -->
+        <title>WEB1 - html</title>
+    </head>
 
-<!-- 목록 -->
-<!-- <li></li> list 목차 -->
-<li>egoing</li>
-<li>k8805</li>
-<li>sorialgi</li>
+    <!-- <body></body> 본문 -->
+    <body>
+        <!-- <h1></h1> heading -->
+        <h1>HTML 공부하기</h1>
 
-<!-- <ul></ul> unordered list 한 목록을 다른 목록과 구분할 수 있는 경계 -->
-<ul>
-    <li>1. HTML</li>
-    <li>2. CSS</li>
-    <li>3. JavaScript</li>
-</ul>
-<!-- li 태그는 ul 태그를 꼭 필요로 한다 -->
+        <!-- <p></p> 단락 -->
+        <p>
+            Hypertext Markup Language (HTML) is the standard markup language for
+            <strong>creating <u>web</u> pages</strong> and web applications. Web
+            browsers receive HTML documents from a web server or from local
+            storage and render them into multimedia web pages. HTML describes
+            the structure of a web page semantically and originally included
+            cues for the appearance of the document.
+        </p>
+        <!-- <br /> 줄 개행 -->
 
-<!-- <ol></ol> ordered list 순서를 부여하고 싶을 때 -->
-<ol>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ol>
+        <p style="margin-top: 40px">
+            <!-- <br /> 태그를 사용하는 것보다는 의미에 맞는 <p></p> 태그를 사용하기 -->
+            <!-- 시각적으로 부족한 부분은 css로 정교하게 제어할 수 있으니 의미에 맞는 태그를 사용하기 -->
+            HTML elements are the building blocks of HTML pages. With HTML
+            constructs, images and other objects, such as interactive forms, may
+            be embedded into the rendered page. It provides a means to create
+            structured documents by denoting structural semantics for text such
+            as headings, paragraphs, lists, links, quotes and other items. HTML
+            elements are delineated by tags, written using angle brackets.
+        </p>
+
+        <!-- <img /> 이미지 -->
+        <!-- 속성 source: 태그의 이름만으로는 정보가 부족할 때 사용 -->
+        <!-- 링크로 -->
+        <img
+            src="https://s3-ap-northeast-2.amazonaws.com/opentutorials-user-file/module/3135/7648.png"
+            width="100%"
+            alt=""
+        />
+        <!-- 저장된 이미지로 -->
+        <img src="coding.avif" width="100%" alt="" />
+
+        <!-- 목록 -->
+        <!-- <li></li> list 목차 -->
+        <li>egoing</li>
+        <li>k8805</li>
+        <li>sorialgi</li>
+
+        <!-- <ul></ul> unordered list 한 목록을 다른 목록과 구분할 수 있는 경계 -->
+        <ul>
+            <li>1. HTML</li>
+            <li>2. CSS</li>
+            <li>3. JavaScript</li>
+        </ul>
+        <!-- li 태그는 ul 태그를 꼭 필요로 한다 -->
+
+        <!-- <ol></ol> ordered list 순서를 부여하고 싶을 때 -->
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+    </body>
+</html>
