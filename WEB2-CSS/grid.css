@@ -1,0 +1,44 @@
+.item {
+    border: 1px solid salmon;
+}
+
+/* 그리드 속성 */
+.container {
+    display: grid;
+    /* display: inline-grid; */
+
+    /* grid-template-columns: 200px 200px 500px; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: 200px 1fr; */
+    /* grid-template-columns: 100px 200px auto; */
+
+    /* grid-template-rows: 200px 200px 500px; */
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    /* grid-template-rows: repeat(3, 1fr) */
+    /* grid-template-rows: 200px 1fr */
+    /* grid-template-rows: 100px 200px auto */
+
+    grid-template-columns: 50px;
+    grid-auto-columns: 1fr 2fr;
+}
+
+.item:nth-child(1) {
+    grid-column: 2;
+}
+.item:nth-child(2) {
+    grid-column: 3;
+}
+.item:nth-child(3) {
+    grid-column: 4;
+}
+.item:nth-child(4) {
+    grid-column: 5;
+}
+/*
+.item:nth-child(5) {
+    grid-column: 6;
+}
+.item:nth-child(6) {
+    grid-column: 7;
+} */
