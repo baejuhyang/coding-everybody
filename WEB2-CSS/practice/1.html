@@ -12,15 +12,27 @@
             #grid {
                 display: grid;
                 grid-template-columns: 1fr 5fr;
+                border-top: 1px solid gray;
             }
 
             #grid > ol {
                 padding-right: 30px;
                 min-width: 150px;
+                border-right: 1px solid gray;
             }
 
             #article {
                 padding-left: 25px;
+            }
+
+            @media (max-width: 800px) {
+                #grid {
+                    display: block;
+                }
+
+                #grid > ol {
+                    border-right: none;
+                }
             }
         </style>
     </head>
