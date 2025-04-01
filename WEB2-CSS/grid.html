@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grid</title>
+
+        <style>
+            #grid {
+                border: 5px solid pink;
+                display: grid;
+                /* grid-template-columns: 150px 1fr; */
+                /* 첫번째 column은 150px, 두번째 column은 나머지 공간을 다 사용 */
+                grid-template-columns: 2fr 1fr;
+                /* 첫번째 column과 두번째 column의 비율이 2:1 */
+            }
+
+            div {
+                border: 5px solid gray;
+                display:;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="grid">
+            <div>Navigation</div>
+            <div>Article</div>
+        </div>
+    </body>
+</html>
