@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JavaScript</title>
+    </head>
+    <body>
+        <h1>JavaScript</h1>
+        <!-- script 태그 안쪽에 JavaScript 작성 -->
+        <script>
+            document.write('Hello');
+            document.write(1 + 1); // 2로 출력 // 동적이다.
+        </script>
+
+        <!-- 비교 -->
+        <h1>HTML</h1>
+        Hello 1+1
+        <br />
+
+        <!-- 이벤트 -->
+        <!-- 사용자와 상호작용 가능 -->
+        <button onclick="alert('clicked')">hi</button>
+        <input type=" text" onchange="alert('changed')" />
+        <input type=" text" onkeydown="alert('key down')" />
+        <br />
+
+        <!-- 제어할 태그 선택하기 querySelector -->
+        <button
+            onclick="document.querySelector('body').style.backgroundColor='black'; document.querySelector('body').style.color='white';
+"
+        >
+            Dark
+        </button>
+        <button
+            onclick="document.querySelector('body').style.backgroundColor='white'; document.querySelector('body').style.color='black';
+"
+        >
+            Light
+        </button>
+        <br />
+
+        <!-- 토글버튼 -->
+        <label for="toggle">toggle</label>
+        <button
+            id="toggle"
+            type="button"
+            value="Dark"
+            onclick="
+            let target = document.querySelector('body');
+            if(this.value === 'Dark'){
+                target.style.backgroundColor='black'; 
+                target.style.color='white'; 
+                    this.value = 'Light';}
+            else{
+                target.style.backgroundColor='white';
+                target.style.color='black'; 
+                    this.value= 'Dark';
+            }"
+        >
+            Dark
+        </button>
+    </body>
+</html>
