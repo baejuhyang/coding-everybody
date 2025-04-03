@@ -1,16 +1,24 @@
 const toggleBtns = document.querySelectorAll('input.toggle');
 
+const Body = {
+    setBackgroundColor: function (color) {
+        document.querySelector('body').style.backgroundColor = color;
+    },
+    setColor: function (color) {
+        document.querySelector('body').style.color = color;
+    },
+};
+
 const toggleBtnHandler = () => {
-    let target = document.querySelector('body');
-    if (target.style.backgroundColor === 'black') {
-        target.style.backgroundColor = 'white';
-        target.style.color = 'black';
+    if (document.querySelector('body').style.backgroundColor === 'black') {
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
         toggleBtns.forEach((btn) => {
             btn.value = 'Dark';
         });
     } else {
-        target.style.backgroundColor = 'black';
-        target.style.color = 'white';
+        Body.setBackgroundColor('black');
+        Body.setColor('white');
         toggleBtns.forEach((btn) => {
             btn.value = 'Light';
         });
