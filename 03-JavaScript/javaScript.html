@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JavaScript</title>
+        <script src="javaScript.js" defer></script>
     </head>
     <body>
         <h1>JavaScript</h1>
@@ -41,24 +42,18 @@
         <br />
 
         <!-- 토글버튼 -->
-        <label for="toggle">toggle</label>
-        <button
-            id="toggle"
+        <label for="">toggle</label>
+        <input
+            class="toggle"
             type="button"
             value="Dark"
-            onclick="
-            let target = document.querySelector('body');
-            if(this.value === 'Dark'){
-                target.style.backgroundColor='black'; 
-                target.style.color='white'; 
-                    this.value = 'Light';}
-            else{
-                target.style.backgroundColor='white';
-                target.style.color='black'; 
-                    this.value= 'Dark';
-            }"
-        >
-            Dark
-        </button>
+            onclick="toggleBtnHandler()"
+        />
+        <input
+            class="toggle"
+            type="button"
+            value="Dark"
+            onclick="toggleBtnHandler()"
+        />
     </body>
 </html>
