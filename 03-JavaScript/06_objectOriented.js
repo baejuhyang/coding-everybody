@@ -110,22 +110,76 @@
 // 생성자 = consturctor
 
 // 매개인자를 만들어보기
-function Person(name, first, second, third) {
-    this.name = name;
-    this.first = first;
-    this.second = second;
-    this.third = third;
-    this.sum = function () {
-        return this.first + this.second + this.third;
-    };
-}
+// function Person(name, first, second, third) {
+//     this.name = name;
+//     this.first = first;
+//     this.second = second;
+//     this.third = third;
+//     this.sum = function () {
+//         return this.first + this.second + this.third;
+//     };
+// }
 
-let kim = new Person('kim', 10, 20, 30);
-let lee = new Person('lee', 10, 10, 10);
-console.log(kim.sum()); // 60
-console.log(lee.sum()); // 30
+// let kim = new Person('kim', 10, 20, 30);
+// let lee = new Person('lee', 10, 10, 10);
+// console.log(kim.sum()); // 60
+// console.log(lee.sum()); // 30
 
 // JS의 내장 constructor
 // let d1 = new Date('2025-04-10'); // d1은 객체이다
 // console.log(d1.getFullYear()); // 2025
 // console.log(d1.getMonth()); // 3
+
+// 프로토타입
+// function Person(name, first, second, third) {
+//     this.name = name;
+//     this.first = first;
+//     this.second = second;
+//     this.third = third;
+//     this.sum = function () {
+//         return this.first + this.second + this.third;
+//     };
+//     // 문제1) 객체의 sum 이라는 함수가 생성될 때마다 새로 만들어지고 있다 // 즉, 메모리 낭비
+//     // 문제2) 이 sum 함수를 수정하기 위해서는 function 밖에서 Person 함수로 만들어진 객체를 일일이 수정해야 함
+//     // 생성자 안에서 메소드를 만드는 것이 갇는 단점. 생산성이 떨어짐.
+// }
+
+// let kim = new Person('kim', 10, 20, 30);
+// kim.sum = function () {
+//     return `modified: ${this.first} + ${this.second}`;
+// };
+
+// let lee = new Person('lee', 10, 10, 10);
+// kim.lee = function () {
+//     return `modified: ${this.first} + ${this.second}`;
+// };
+
+// Person이라는 생성자를 이용해 만든 모든 객체가 공통적으로 사용하는 함수를 만들수 있으면 좋겠다!
+// prototype을 이용해서 코드의 재사용성을 높이고, 성능을 향상
+
+function Person(name, first, second, third) {
+    this.name = name;
+    this.first = first;
+    this.second = second;
+    this.third = third;
+}
+// Person이라는 생성자 함수에 공통적으로 사용할 sum이라는 메소드를 만들고자 한다
+// Person이라는 생성자 함수의 원형을 정한다. sum이라는 함수의.
+Person.prototype.sum = function () {
+    return this.first + this.second + this.third;
+};
+
+let kim = new Person('kim', 10, 20, 30);
+let lee = new Person('lee', 10, 10, 10);
+console.log('kim.sum()', kim.sum());
+console.log('lee.sum()', lee.sum());
+// 장점
+// Person 생성자 함수 안에서 정의되지 않기 때문에 정의하는 코드가 객체가 만들어질 때 마다 실행되지 않고 한번만 실행됨. 성능 절약
+// 한번만 정의되기 때문에 메모리 절약.
+
+// kim이라는 sum만 다르게 동작하도록 할 수도 있음
+kim.sum = function () {
+    return `this: ${this.first + this.second}`;
+};
+console.log('kim.sum()', kim.sum()); // kim이라는 객체의 sum 메소드를 호출할 때 그 객체 자신이 sum이라는 속성을 가지고 있는지 찾아 실행하고,
+console.log('lee.sum()', lee.sum()); // 없으면 객체의 생성자인 Person의 prototype에 sum이라는 메소드가 정의되어 있는지를 찾고 실행한다.
