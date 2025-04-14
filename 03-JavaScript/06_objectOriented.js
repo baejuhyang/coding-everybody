@@ -150,36 +150,59 @@
 // };
 
 // let lee = new Person('lee', 10, 10, 10);
-// kim.lee = function () {
+// lee.sum = function () {
 //     return `modified: ${this.first} + ${this.second}`;
 // };
 
 // Person이라는 생성자를 이용해 만든 모든 객체가 공통적으로 사용하는 함수를 만들수 있으면 좋겠다!
 // prototype을 이용해서 코드의 재사용성을 높이고, 성능을 향상
 
-function Person(name, first, second, third) {
-    this.name = name;
-    this.first = first;
-    this.second = second;
-    this.third = third;
-}
+// function Person(name, first, second, third) {
+//     this.name = name;
+//     this.first = first;
+//     this.second = second;
+//     this.third = third;
+// }
 // Person이라는 생성자 함수에 공통적으로 사용할 sum이라는 메소드를 만들고자 한다
 // Person이라는 생성자 함수의 원형을 정한다. sum이라는 함수의.
-Person.prototype.sum = function () {
-    return this.first + this.second + this.third;
-};
+// Person.prototype.sum = function () {
+//     return this.first + this.second + this.third;
+// };
 
-let kim = new Person('kim', 10, 20, 30);
-let lee = new Person('lee', 10, 10, 10);
-console.log('kim.sum()', kim.sum());
-console.log('lee.sum()', lee.sum());
+// let kim = new Person('kim', 10, 20, 30);
+// let lee = new Person('lee', 10, 10, 10);
+// console.log('kim.sum()', kim.sum());
+// console.log('lee.sum()', lee.sum());
 // 장점
 // Person 생성자 함수 안에서 정의되지 않기 때문에 정의하는 코드가 객체가 만들어질 때 마다 실행되지 않고 한번만 실행됨. 성능 절약
 // 한번만 정의되기 때문에 메모리 절약.
 
 // kim이라는 sum만 다르게 동작하도록 할 수도 있음
-kim.sum = function () {
-    return `this: ${this.first + this.second}`;
-};
-console.log('kim.sum()', kim.sum()); // kim이라는 객체의 sum 메소드를 호출할 때 그 객체 자신이 sum이라는 속성을 가지고 있는지 찾아 실행하고,
-console.log('lee.sum()', lee.sum()); // 없으면 객체의 생성자인 Person의 prototype에 sum이라는 메소드가 정의되어 있는지를 찾고 실행한다.
+// kim.sum = function () {
+//     return `this: ${this.first + this.second}`;
+// };
+// console.log('kim.sum()', kim.sum()); // kim이라는 객체의 sum 메소드를 호출할 때 그 객체 자신이 sum이라는 속성을 가지고 있는지 찾아 실행하고,
+// console.log('lee.sum()', lee.sum()); // 없으면 객체의 생성자인 Person의 prototype에 sum이라는 메소드가 정의되어 있는지를 찾고 실행한다.
+
+// 클래스 // class는 객체를 만드는 공장이다
+class Person {
+    // 객체의 초기 상태 세팅
+    // 객체가 생성될 때 그 객체의 초기상태를 지정하기 위한 객체가 만들어지기 직전에 실행되도록 약속된 함수 constructor
+    // constructor 이름을 반드시 사용해야 함
+    // 메소드를 만들 때는 function 키워드 사용하지 않아도 됨.
+    constructor(name, first, second) {
+        this.name = name;
+        this.first = first;
+        this.second = second;
+    }
+}
+
+var kim = new Person('kim', 10, 20); // constructor 함수가 객체가 생성되는 과정에서 실행된다.
+console.log(kim); // Person { name: 'kim', first: 10, second: 20 }
+
+// kim.sum = function(){
+//     return 'this : '+(this.first+this.second);
+// }
+// var lee = new Person('lee', 10, 10);
+// console.log("kim.sum()", kim.sum());
+// console.log("lee.sum()", lee.sum());
