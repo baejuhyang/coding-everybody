@@ -185,24 +185,62 @@
 // console.log('lee.sum()', lee.sum()); // 없으면 객체의 생성자인 Person의 prototype에 sum이라는 메소드가 정의되어 있는지를 찾고 실행한다.
 
 // 클래스 // class는 객체를 만드는 공장이다
+// class Person {
+//     // 객체의 초기 상태 세팅
+//     // 객체가 생성될 때 그 객체의 초기상태를 지정하기 위한 객체가 만들어지기 직전에 실행되도록 약속된 함수 constructor
+//     // constructor 이름을 반드시 사용해야 함
+//     // 메소드를 만들 때는 function 키워드 사용하지 않아도 됨.
+//     constructor(name, first, second) {
+//         this.name = name;
+//         this.first = first;
+//         this.second = second;
+//     }
+// }
+
+// var kim = new Person('kim', 10, 20); // constructor 함수가 객체가 생성되는 과정에서 실행된다.
+// console.log(kim); // Person { name: 'kim', first: 10, second: 20 }
+
+// 메소드 구현
+// class Person {
+//     constructor(name, first, second) {
+//         this.name = name;
+//         this.first = first;
+//         this.second = second;
+//     }
+// }
+
+// // 방법1)
+// Person.prototype.sum = function () {
+//     return `prototype: ${this.first + this.second}`;
+// };
+
+// var kim = new Person('kim', 10, 20);
+// console.log(kim); // Person { name: 'kim', first: 10, second: 20 }
+// console.log(kim.sum()); // prototype: 30
+
+// 방법2)
 class Person {
-    // 객체의 초기 상태 세팅
-    // 객체가 생성될 때 그 객체의 초기상태를 지정하기 위한 객체가 만들어지기 직전에 실행되도록 약속된 함수 constructor
-    // constructor 이름을 반드시 사용해야 함
-    // 메소드를 만들 때는 function 키워드 사용하지 않아도 됨.
     constructor(name, first, second) {
         this.name = name;
         this.first = first;
         this.second = second;
     }
+
+    // class 안에 넣기
+    sum() {
+        return `prototype: ${this.first + this.second}`;
+    } // 같은 클래스에 속해 있는 모든 객체가 공유하는 함수
 }
 
-var kim = new Person('kim', 10, 20); // constructor 함수가 객체가 생성되는 과정에서 실행된다.
+var kim = new Person('kim', 10, 20);
 console.log(kim); // Person { name: 'kim', first: 10, second: 20 }
+console.log(kim.sum()); // prototype: 30
 
-// kim.sum = function(){
-//     return 'this : '+(this.first+this.second);
-// }
-// var lee = new Person('lee', 10, 10);
-// console.log("kim.sum()", kim.sum());
-// console.log("lee.sum()", lee.sum());
+var lee = new Person('lee', 10, 10);
+// lee는 함수를 다르게 적용하고 싶다면
+lee.sum = function () {
+    return `this: ${this.first + this.second}`;
+};
+console.log(lee.sum()); // this: 20
+// JS는 lee라는 객체가 sum이라는 함수를 가지고 있는지 먼저 확인 후
+// 없으면 lee 객체의 class안에 sum 메소드가 정의되어있는지 보고 실행
