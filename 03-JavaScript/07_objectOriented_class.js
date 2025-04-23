@@ -100,42 +100,42 @@
 
 // // 상속, 확장을 통해 중복되는 코드 제거, 유지보수의 편의성 도모
 
-// super
-// 자식 class와 부모 class간의 관계에 대한 문제
-class Person {
-    constructor(name, first, second) {
-        this.name = name;
-        this.first = first;
-        this.second = second;
-    }
-    sum() {
-        return this.first + this.second;
-    }
-}
+// // super
+// // 자식 class와 부모 class간의 관계에 대한 문제
+// class Person {
+//     constructor(name, first, second) {
+//         this.name = name;
+//         this.first = first;
+//         this.second = second;
+//     }
+//     sum() {
+//         return this.first + this.second;
+//     }
+// }
 
-// 세번째 값도 가지고 싶다면
-class PersonPlus extends Person {
-    constructor(name, first, second, third) {
-        super(name, first, second); // 부모 class를 불러 일을 시키고
-        this.third = third; // 부모가 하지 못하는 일은 나만 하도록
-    }
+// // 세번째 값도 가지고 싶다면
+// class PersonPlus extends Person {
+//     constructor(name, first, second, third) {
+//         super(name, first, second); // 부모 class를 불러 일을 시키고
+//         this.third = third; // 부모가 하지 못하는 일은 나만 하도록
+//     }
 
-    sum() {
-        return super.sum() + this.third; // 부모 class의 sum 을 호출하여 추가 작업 실행
-    }
-    avg() {
-        return (this.first + this.second + this.third) / 3;
-    }
-}
+//     sum() {
+//         return super.sum() + this.third; // 부모 class의 sum 을 호출하여 추가 작업 실행
+//     }
+//     avg() {
+//         return (this.first + this.second + this.third) / 3;
+//     }
+// }
 
-var kim = new PersonPlus('kim', 10, 20, 30);
-console.log('kim.sum()', kim.sum());
-console.log('kim.avg()', kim.avg());
+// var kim = new PersonPlus('kim', 10, 20, 30);
+// console.log('kim.sum()', kim.sum());
+// console.log('kim.avg()', kim.avg());
 
-// super의 용법 2가지
-// 1. super(): 부모 클래스의 생성자를 호출한다.
-// 2. super."메서드명"(): 부모 클래스의 프로토타입 메서드를 호출한다.
+// // super의 용법 2가지
+// // 1. super(): 부모 클래스의 생성자를 호출한다.
+// // 2. super."메서드명"(): 부모 클래스의 프로토타입 메서드를 호출한다.
 
-// *super 키워드의 장점
-// 1. 부모 클래스에서 선언된 생성자, 변수(필드), 메서드를 재사용할 수 있다.
-// 2. 자식 클래스에서 생성자와 메서드를 중복 선언할 필요가 없어진다.
+// // super 키워드의 장점
+// // 1. 부모 클래스에서 선언된 생성자, 변수(필드), 메서드를 재사용할 수 있다.
+// // 2. 자식 클래스에서 생성자와 메서드를 중복 선언할 필요가 없어진다.
