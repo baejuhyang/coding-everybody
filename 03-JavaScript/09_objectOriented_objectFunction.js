@@ -25,7 +25,7 @@
 // console.log(sum2.call(kim, '=>')); // =>30
 // console.log(sum2.call(lee, ':')); // :20
 
-// ## bind
+// ## bind // 함수를 즉시 실행하지 않고, this를 고정한 새로운 함수를 반환.
 // 호출될 때 마다 함수의 내부적으로 사용할 this를 다른 것으로 고정
 let kim = { name: 'kim', first: 10, second: 20 };
 let lee = { name: 'lee', first: 10, second: 10 };
