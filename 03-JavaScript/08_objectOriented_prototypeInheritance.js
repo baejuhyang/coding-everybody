@@ -94,3 +94,26 @@ lee.avg = function () {
 };
 console.log(lee.sum()); // 20
 console.log(lee.avg()); // 10
+
+// prototype과 __proto__
+
+// 함수는 js에서 객체다. 따라서 property를 가질 수 있다.
+// 두개는 같은 식
+function Person() {}
+let Person = new Function();
+
+// 여기서 Person과 Person's prototype 객체 2개가 생성됨
+// 두 개의 객체는 연관되어 있고 관련되어 있다
+// Person에는 prototype이라는 property가 생기고 그 property는 Person's prototype 객체를 가리킨다
+
+// Person의 prototype객체도 자신이 Person 소속임을 기록하기 위해  constructor라는 property를 가지고 그건 Person을 가리킴
+// 두 객체는 상호참조하고 있음
+
+Person.prototype.sum = function () {};
+// Person의 prototype 객체에 sum prototype이 생김
+
+let kim = new Person('kim', 10, 20);
+// kim이라는 객체에는 __proto__ 가 property로 생성됨. (앞의 Person에서 정의한 속성들도 그대로 받음)
+// __proto__는 Person의 prototype을 가리킴
+// person의 prototype에 접근하기 위해서는 Person.prototype 또는 kim.__proto__
+// kim에 property나 메소드가 없으면 __proto__로 가서 찾음
