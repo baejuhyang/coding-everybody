@@ -3,7 +3,8 @@ export default function Home() {
         <>
             <main>
                 <h2>Welcome</h2>
-                Hello, WEB!
+                <p>Hello, WEB!</p>
+                <img src="/hello.png" alt="hello" />
             </main>
         </>
     );
