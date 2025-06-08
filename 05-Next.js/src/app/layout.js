@@ -1,6 +1,7 @@
 // 'use client';
 import Link from 'next/link';
 import './globals.css';
+import Control from './Control';
 // import { useEffect, useState } from 'react';
 
 export const metadata = {
@@ -55,17 +56,7 @@ export default async function RootLayout({ children }) {
                 {children}
 
                 <aside>
-                    <ul>
-                        <li>
-                            <Link href="/create">Create</Link>
-                        </li>
-                        <li>
-                            <Link href="/update/1">Update</Link>
-                        </li>
-                        <li>
-                            <input type="button" value="Delete" />
-                        </li>
-                    </ul>
+                    <Control />
                 </aside>
             </body>
         </html>

@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'; // mrouter 에서는 uesRouter를 navigation에서 가져와야 한다.
 import React from 'react';
 
-const Create = () => {
+export default function Create() {
     // 방금 생성된 것으로 리디렉션 하기
     const router = useRouter();
 
@@ -49,6 +49,4 @@ const Create = () => {
             </p>
         </form>
     );
-};
-
-export default Create;
+}
