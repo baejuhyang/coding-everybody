@@ -30,11 +30,10 @@ export default function Create() {
                 fetch('http://localhost:9999/topics', options)
                     .then((resp) => resp.json())
                     .then((result) => {
-                        console.log(result);
-
                         // 방금 생성한 글로 리디렉션
                         const lastid = result.id;
-                        router.push(`/read/${lastid}`); // 이건 뭐야
+                        router.push(`/read/${lastid}`);
+                        router.refresh(); // 페이지를 새로고침하여 글 목록 정보 데이터 다시 요청
                     });
             }}
         >

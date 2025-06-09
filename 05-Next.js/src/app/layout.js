@@ -20,7 +20,9 @@ export default async function RootLayout({ children }) {
     // }, []);
 
     //fetch도 동기적인 코드로 바꾸기
-    const resp = await fetch('http://localhost:9999/topics');
+    const resp = await fetch('http://localhost:9999/topics', {
+        cache: 'no-store', // next: { revalidation: 0 } // 캐시 사용 안함
+    });
     const topics = await resp.json();
 
     // console.log(topics);
