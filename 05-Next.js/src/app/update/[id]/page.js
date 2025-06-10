@@ -6,10 +6,10 @@ export default function Update() {
     const router = useRouter();
     const params = useParams();
     const id = params.id;
-    const [topic, setTopic] = useState({});
+    const [topic, setTopic] = useState({ title: '', body: '' });
 
     useEffect(() => {
-        fetch(`http://localhost:9999/topics/${id}`)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/${id}`)
             .then((resp) => resp.json())
             .then((result) => setTopic(result));
     }, []);
@@ -30,7 +30,7 @@ export default function Update() {
                     body: JSON.stringify({ title, body }),
                 };
 
-                fetch(`http://localhost:9999/topics/${id}`, options)
+                fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/${id}`, options)
                     .then((resp) => resp.json())
                     .then(() => {
                         // 방금 수정한 글로 리디렉션

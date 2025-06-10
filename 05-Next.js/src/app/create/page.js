@@ -27,7 +27,7 @@ export default function Create() {
                     body: JSON.stringify({ title, body }), // JS 객체를 JSON 문자열로 변환(서버가 올바르게 해석 할 수 있도록)
                 };
 
-                fetch('http://localhost:9999/topics', options)
+                fetch(`${process.env.NEXT_PUBLIC_API_URL}topics`, options)
                     .then((resp) => resp.json())
                     .then((result) => {
                         // 방금 생성한 글로 리디렉션
